@@ -1,0 +1,23 @@
+{
+  "name": "DeadPoets",
+  "version": "1.0.0",
+  "description": "### DeadPoet’s purpose is to help indie authors self-publish their written media as an ebook using NFT technology. Ebooks can be very diverse, ranging from novels to textbooks, zines to comics, poems to web fiction and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashileotic/DeadPoets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashileotic/DeadPoets/issues"
+  },
+  "homepage": "https://github.com/ashileotic/DeadPoets#readme",
+  "devDependencies": {
+    "hardhat": "^2.9.3"
+  }
+}
