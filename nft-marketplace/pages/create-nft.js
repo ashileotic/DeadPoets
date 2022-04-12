@@ -15,7 +15,7 @@ import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketp
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null)
   const [pdfUrl, setPdfUrl] = useState(null)
-  const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
+  const [formInput, updateFormInput] = useState({ price: '', name: '', description: '', author: '' })
   const router = useRouter()
 
   async function onChange(e) {
@@ -51,11 +51,11 @@ export default function CreateItem() {
   }
 
   async function uploadToIPFS() {
-    const { name, description, price } = formInput
-    if (!name || !description || !price || !fileUrl || !pdfUrl) return
+    const { name, author, description, price } = formInput
+    if (!name || !author || !description || !price || !fileUrl || !pdfUrl) return
     /* first, upload to IPFS */
     const data = JSON.stringify({
-      name, description, image: fileUrl, pdf: pdfUrl
+      name, author, description, image: fileUrl, pdf: pdfUrl
     })
     try {
       const added = await client.add(data)
@@ -89,17 +89,22 @@ export default function CreateItem() {
     <div className="flex justify-center">
       <div className="w-1/2 flex flex-col pb-12">
         <input 
-          placeholder="Asset Name"
+          placeholder="Title"
           className="mt-8 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
         />
+        <input 
+          placeholder="Author"
+          className="mt-8 border rounded p-4"
+          onChange={e => updateFormInput({ ...formInput, author: e.target.value })}
+        />
         <textarea
-          placeholder="Asset Description"
+          placeholder="Description"
           className="mt-2 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, description: e.target.value })}
         />
         <input
-          placeholder="Asset Price in Eth"
+          placeholder="Price in Eth"
           className="mt-2 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, price: e.target.value })}
         />

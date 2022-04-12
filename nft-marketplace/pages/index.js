@@ -36,6 +36,7 @@ export default function Home() {
         owner: i.owner,
         image: meta.data.image,
         name: meta.data.name,
+        author: meta.data.author,
         description: meta.data.description,
       }
       return item
@@ -69,7 +70,8 @@ export default function Home() {
               <div key={i} className="border shadow rounded-xl overflow-hidden">
                 <img src={nft.image} />
                 <div className="p-4">
-                  <p style={{ height: '64px' }} className="text-2xl font-semibold">{nft.name}</p>
+                  <p style={{ height: '70px' }} className="text-2xl font-semibold">{nft.name}</p>
+                  <p style={{ height: '35px' }} className="font-medium text-grey-900">{nft.author}</p>
                   <div style={{ height: '70px', overflow: 'hidden' }}>
                     <p className="text-gray-400">{nft.description}</p>
                   </div>
